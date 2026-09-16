@@ -9,6 +9,9 @@ const services: { id: string; title: string; description: string; points: string
     description:
       "For adults experiencing constant worry, physical tension, difficulty sleeping, and the sense of always bracing for something to go wrong. Together we explore patterns of overthinking and emotional overwhelm, while building regulation and coping strategies that feel sustainable in daily life.",
     points: ["Constant worry & overthinking", "Physical tension & sleep difficulty", "Feeling on edge or braced"],
+    image: "/images/anxiety-panic.jpg",
+    alt: "Reflective adult with notebook in a warm, grounded therapy interior — representing anxiety and overthinking in need of steady support",
+    position: "object-[50%_18%]",
   },
   {
     id: "trauma",
