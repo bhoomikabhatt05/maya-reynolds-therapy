@@ -19,9 +19,9 @@ const services: { id: string; title: string; description: string; points: string
     description:
       "Carefully paced support for single-incident trauma, complex or long-standing trauma, and the lingering effects of childhood and relationship experiences. The work emphasizes safety, stabilization, and regulation — integrating CBT, EMDR, mindfulness and body-oriented techniques while honoring both emotional and physiological experience.",
     points: ["Single-incident & complex trauma", "Childhood & relationship experiences", "Safety, stabilization & regulation"],
-    image: "/images/trauma-support-2.jpg",
-    alt: "Seated adult in a calm, sunlit therapy interior, evoking careful pacing and safety for trauma work in Santa Monica",
-    position: "object-[50%_35%]",
+    image: "/images/trauma-support.jpg",
+    alt: "Seated adult in a calm therapy interior, evoking careful pacing and safety for trauma work in Santa Monica",
+    position: "object-[50%_22%]",
   },
   {
     id: "burnout",

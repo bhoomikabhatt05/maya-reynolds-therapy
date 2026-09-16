@@ -37,7 +37,7 @@ export default function WhoWeHelp() {
           <div className="relative aspect-[4/3] rounded-[18px] overflow-hidden border border-line shadow-sm bg-cream group">
             <Image
               src="/images/who-support.jpg"
-              alt="Calm, reflective adult with notebook in a warm therapy interior — representing thoughtful adults navigating stress and overthinking"
+              alt="Reflective adult seated in a warm therapy interior — representing thoughtful adults navigating stress and overthinking"
               fill
               sizes="(min-width: 1024px) 40vw, 90vw"
               className="object-cover object-[50%_20%] transition-transform duration-300 ease-out group-hover:scale-[1.02]"
