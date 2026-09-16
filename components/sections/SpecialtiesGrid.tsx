@@ -50,7 +50,6 @@ export default function SpecialtiesGrid() {
           </p>
         </div>
 
-        <div id="anxiety" className="scroll-mt-24" />
         <div className="grid md:grid-cols-3 gap-6 lg:gap-6">
           {services.map((s, i) => (
             <Reveal key={s.title} delay={i * 120} className="h-full">
