@@ -12,9 +12,9 @@ export default function Hero() {
             src="/images/hero.jpg"
             alt="Warm, approachable presence — calm and human, reflecting Dr. Maya Reynolds' collaborative therapy for adults in Santa Monica"
             fill
-            sizes="(min-width: 1024px) 44vw, 90vw"
-            className="object-cover"
-            priority
+              sizes="(min-width: 1024px) 44vw, 90vw"
+              className="object-cover hero-img"
+              priority
           />
         </div>
 

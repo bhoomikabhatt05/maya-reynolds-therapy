@@ -53,7 +53,7 @@ export default function SpecialtiesGrid() {
         <div id="anxiety" className="scroll-mt-24" />
         <div className="grid md:grid-cols-3 gap-6 lg:gap-6">
           {services.map((s, i) => (
-            <Reveal key={s.title} delay={i * 140} className="h-full">
+            <Reveal key={s.title} delay={i * 120} className="h-full">
               <div
                 id={s.id}
                 className="group relative flex flex-col h-full rounded-[18px] bg-sand border border-line overflow-hidden shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md hover:border-sage/30 scroll-mt-24"

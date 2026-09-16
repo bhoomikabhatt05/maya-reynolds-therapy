@@ -69,14 +69,28 @@ body {
 
 .hero-anim {
   opacity: 0;
-  animation: hero-rise 0.8s ease-out forwards;
+  animation: hero-rise 0.7s ease-out forwards;
 }
 
-.hero-anim-1 { animation-delay: 0.05s; }
-.hero-anim-2 { animation-delay: 0.15s; }
-.hero-anim-3 { animation-delay: 0.28s; }
-.hero-anim-4 { animation-delay: 0.4s; }
-.hero-anim-5 { animation-delay: 0.5s; }
+.hero-anim-1 { animation-delay: 0s; }
+.hero-anim-2 { animation-delay: 0.1s; }
+.hero-anim-3 { animation-delay: 0.2s; }
+.hero-anim-4 { animation-delay: 0.3s; }
+.hero-anim-5 { animation-delay: 0.4s; }
+
+/* Hero image: quiet scale settle while its container fades in */
+@keyframes hero-img-settle {
+  from {
+    transform: scale(1.03);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-img {
+  animation: hero-img-settle 1s ease-out forwards;
+}
 
 /* 2. Scroll reveals (driven by Reveal component) */
 .reveal {
@@ -159,6 +173,7 @@ body {
 /* 10. Reduced motion: stillness first */
 @media (prefers-reduced-motion: reduce) {
   .hero-anim,
+  .hero-img,
   .reveal,
   .reveal-img img {
     opacity: 1 !important;
