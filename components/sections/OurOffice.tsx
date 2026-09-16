@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Container from "../layout/Container";
 import Eyebrow from "../ui/Eyebrow";
+import Reveal from "../ui/Reveal";
 
 export default function OurOffice() {
   return (
@@ -17,7 +18,7 @@ export default function OurOffice() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          <div className="relative aspect-[4/3] rounded-[18px] overflow-hidden border border-line shadow-sm bg-sand">
+          <Reveal variant="image" className="group relative aspect-[4/3] rounded-[18px] overflow-hidden border border-line shadow-sm bg-sand">
             <Image
               src="/images/office-1.jpg"
               alt="Maya Reynolds Santa Monica office — quiet, private, naturally lit therapy space with comfortable seating"
@@ -25,8 +26,8 @@ export default function OurOffice() {
               sizes="(min-width: 768px) 45vw, 90vw"
               className="object-cover"
             />
-          </div>
-          <div className="relative aspect-[4/3] rounded-[18px] overflow-hidden border border-line shadow-sm bg-sand">
+          </Reveal>
+          <Reveal variant="image" delay={150} className="group relative aspect-[4/3] rounded-[18px] overflow-hidden border border-line shadow-sm bg-sand">
             <Image
               src="/images/office-2.jpg"
               alt="Second view of the Santa Monica therapy office — uncluttered, calming and grounding environment"
@@ -34,7 +35,7 @@ export default function OurOffice() {
               sizes="(min-width: 768px) 45vw, 90vw"
               className="object-cover"
             />
-          </div>
+          </Reveal>
         </div>
 
         <div className="mt-8 grid sm:grid-cols-3 gap-4 text-sm">

@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Container from "../layout/Container";
 import Eyebrow from "../ui/Eyebrow";
 
@@ -25,6 +28,8 @@ const faqs = [
 ];
 
 export default function Faq() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
   return (
     <section id="faq" className="py-16 lg:py-24 bg-cream scroll-mt-28">
       <Container>
@@ -39,17 +44,33 @@ export default function Faq() {
             </p>
           </div>
           <div className="divide-y divide-line border-t border-b border-line">
-            {faqs.map((f) => (
-              <details key={f.q} className="group py-5 px-4 -mx-4 rounded-xl transition-colors duration-200 hover:bg-sand/60">
-                <summary className="flex items-center justify-between gap-4 cursor-pointer list-none font-serif-heading text-lg sm:text-xl text-ink hover:text-sage-dark transition-colors focus-visible:outline-2 focus-visible:outline-sage-dark focus-visible:outline-offset-4 rounded [&::-webkit-details-marker]:hidden">
-                  <span>{f.q}</span>
-                  <span aria-hidden="true" className="shrink-0 flex h-8 w-8 items-center justify-center rounded-full border border-line bg-sand text-sage-dark transition-all duration-200 group-hover:border-sage-dark/40 group-hover:bg-sage-light group-open:rotate-45">
-                    +
-                  </span>
-                </summary>
-                <p className="mt-3 max-w-2xl text-sm sm:text-[15px] text-ink-soft leading-relaxed">{f.a}</p>
-              </details>
-            ))}
+            {faqs.map((f, i) => {
+              const open = openIndex === i;
+              return (
+                <div key={f.q} className="faq-item py-2" data-open={open ? "true" : "false"}>
+                  <button
+                    type="button"
+                    aria-expanded={open}
+                    aria-controls={`faq-panel-${i}`}
+                    id={`faq-button-${i}`}
+                    onClick={() => setOpenIndex(open ? null : i)}
+                    className="flex w-full items-center justify-between gap-4 cursor-pointer rounded-xl px-4 py-3 text-left font-serif-heading text-lg sm:text-xl text-ink transition-colors duration-200 hover:bg-sand/60 hover:text-sage-dark focus-visible:outline-2 focus-visible:outline-sage-dark focus-visible:outline-offset-2"
+                  >
+                    <span>{f.q}</span>
+                    <span aria-hidden="true" className="faq-chevron flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line bg-sand text-sage-dark">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                        <path d="M2.5 5L7 9.5L11.5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                  </button>
+                  <div id={`faq-panel-${i}`} role="region" aria-labelledby={`faq-button-${i}`} className="faq-answer px-4">
+                    <div className="faq-answer-inner">
+                      <p className="pt-1 pb-4 max-w-2xl text-sm sm:text-[15px] text-ink-soft leading-relaxed">{f.a}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </Container>

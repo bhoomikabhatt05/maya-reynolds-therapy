@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Container from "../layout/Container";
 import Eyebrow from "../ui/Eyebrow";
+import Reveal from "../ui/Reveal";
 
 export default function IntroSection() {
   return (
     <section id="about" className="py-16 lg:py-24 bg-cream">
       <Container>
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-14 items-start">
-          <div className="max-w-2xl">
+          <Reveal className="max-w-2xl">
             <Eyebrow>About Dr. Maya Reynolds, PsyD</Eyebrow>
             <h2 className="font-serif-heading text-3xl sm:text-4xl leading-tight text-ink">
               Warm, collaborative therapy for adults who feel strong on the outside — and <em className="italic text-sage-dark">exhausted within</em>.
@@ -35,10 +36,10 @@ export default function IntroSection() {
                 <p className="text-ink-soft">Anxiety, panic, trauma, burnout, perfectionism, stress, high internal pressure</p>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           <div className="relative">
-            <div className="relative w-full aspect-[4/5] rounded-[22px] overflow-hidden shadow-sm border border-line bg-sand">
+            <Reveal variant="image" className="relative w-full aspect-[4/5] rounded-[22px] overflow-hidden shadow-sm border border-line bg-sand">
               <Image
                 src="/images/maya-reynolds.jpg"
                 alt="Dr. Maya Reynolds, PsyD — Licensed Clinical Psychologist in Santa Monica, California"
@@ -47,7 +48,7 @@ export default function IntroSection() {
                 className="object-cover object-top"
                 priority
               />
-            </div>
+            </Reveal>
             <div className="mt-3 text-center">
               <p className="font-serif-heading text-lg text-ink">Dr. Maya Reynolds, PsyD</p>
               <p className="text-xs tracking-[0.14em] uppercase text-ink-soft">Licensed Clinical Psychologist</p>

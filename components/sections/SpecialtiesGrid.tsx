@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Container from "../layout/Container";
 import Eyebrow from "../ui/Eyebrow";
+import Reveal from "../ui/Reveal";
 
 const services: { id: string; title: string; description: string; points: string[]; image?: string; alt?: string; position?: string }[] = [
   {
@@ -51,35 +52,36 @@ export default function SpecialtiesGrid() {
 
         <div id="anxiety" className="scroll-mt-24" />
         <div className="grid md:grid-cols-3 gap-6 lg:gap-6">
-          {services.map((s) => (
-            <div
-              key={s.title}
-              id={s.id}
-              className="group relative flex flex-col rounded-[18px] bg-sand border border-line overflow-hidden shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md hover:border-sage/30 scroll-mt-24"
-            >
-              {s.image && (
-                <div className="relative h-56 w-full overflow-hidden">
-                  <Image src={s.image} alt={s.alt || s.title} fill sizes="(min-width: 768px) 30vw, 90vw" className={`object-cover ${s.position || ""} transition-transform duration-300 ease-out group-hover:scale-[1.02]`} />
+          {services.map((s, i) => (
+            <Reveal key={s.title} delay={i * 140} className="h-full">
+              <div
+                id={s.id}
+                className="group relative flex flex-col h-full rounded-[18px] bg-sand border border-line overflow-hidden shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md hover:border-sage/30 scroll-mt-24"
+              >
+                {s.image && (
+                  <div className="relative h-56 w-full overflow-hidden">
+                    <Image src={s.image} alt={s.alt || s.title} fill sizes="(min-width: 768px) 30vw, 90vw" className={`object-cover ${s.position || ""} transition-transform duration-500 ease-out group-hover:scale-[1.025]`} />
+                  </div>
+                )}
+                <div className="p-6 lg:p-7 flex flex-col flex-1">
+                  <div className="h-1 w-10 rounded-full bg-clay/70 mb-4" />
+                  <h3 className="font-serif-heading text-xl text-ink">{s.title}</h3>
+                  <p className="mt-3 text-sm sm:text-[15px] text-ink-soft leading-relaxed">{s.description}</p>
+                  <ul className="mt-4 space-y-1.5 text-sm text-ink-soft">
+                    {s.points.map((p) => (
+                      <li key={p} className="flex gap-2">
+                        <span className="mt-2 h-1 w-1 rounded-full bg-sage-dark shrink-0" />
+                        <span>{p}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              )}
-              <div className="p-6 lg:p-7 flex flex-col flex-1">
-                <div className="h-1 w-10 rounded-full bg-clay/70 mb-4" />
-                <h3 className="font-serif-heading text-xl text-ink">{s.title}</h3>
-                <p className="mt-3 text-sm sm:text-[15px] text-ink-soft leading-relaxed">{s.description}</p>
-                <ul className="mt-4 space-y-1.5 text-sm text-ink-soft">
-                  {s.points.map((p) => (
-                    <li key={p} className="flex gap-2">
-                      <span className="mt-2 h-1 w-1 rounded-full bg-sage-dark shrink-0" />
-                      <span>{p}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        <div className="mt-12 relative w-full aspect-[16/7] rounded-[18px] overflow-hidden border border-line shadow-sm">
+        <Reveal variant="image" className="mt-12 relative w-full aspect-[16/7] rounded-[18px] overflow-hidden border border-line shadow-sm">
           <Image
             src="/images/services-support.jpg"
             alt="Calm therapy office with two chairs, notebook and mug — a grounded space for adult services in Santa Monica"
@@ -87,7 +89,7 @@ export default function SpecialtiesGrid() {
             sizes="100vw"
             className="object-cover"
           />
-        </div>
+        </Reveal>
 
         <div className="mt-8 rounded-xl bg-sage-light border border-line px-5 py-4 text-center">
           <p className="text-sm text-ink-soft">

@@ -52,3 +52,129 @@ body {
   font-family: var(--font-serif);
   letter-spacing: -0.02em;
 }
+
+/* ---------- Quiet editorial motion system ---------- */
+
+/* 1. Hero entrance */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-anim {
+  opacity: 0;
+  animation: hero-rise 0.8s ease-out forwards;
+}
+
+.hero-anim-1 { animation-delay: 0.05s; }
+.hero-anim-2 { animation-delay: 0.15s; }
+.hero-anim-3 { animation-delay: 0.28s; }
+.hero-anim-4 { animation-delay: 0.4s; }
+.hero-anim-5 { animation-delay: 0.5s; }
+
+/* 2. Scroll reveals (driven by Reveal component) */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 4. Editorial image reveal: subtle settle from 1.035 */
+.reveal-img img {
+  transform: scale(1.035);
+  transition: transform 1.1s ease-out;
+}
+
+.reveal-img.is-visible img {
+  transform: scale(1);
+}
+
+/* Hover zoom inside revealed photography stays quick and restrained */
+.reveal-img.group:hover img {
+  transform: scale(1.02);
+  transition-duration: 0.5s;
+}
+
+/* 5. Navigation underline, left to right */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  opacity: 0.7;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease-out;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* 9. FAQ accordion: smooth grid-rows expand/collapse */
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.32s ease-out;
+}
+
+.faq-item[data-open="true"] .faq-answer {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer-inner {
+  overflow: hidden;
+}
+
+.faq-chevron {
+  transition: transform 0.3s ease-out, background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.faq-item[data-open="true"] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+/* 10. Reduced motion: stillness first */
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim,
+  .reveal,
+  .reveal-img img {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .faq-answer {
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

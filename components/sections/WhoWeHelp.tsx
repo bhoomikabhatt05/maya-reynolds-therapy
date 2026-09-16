@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Container from "../layout/Container";
 import Eyebrow from "../ui/Eyebrow";
+import Reveal from "../ui/Reveal";
 
 const groups = [
   {
@@ -34,25 +35,27 @@ export default function WhoWeHelp() {
               I work exclusively with adults. Many are thoughtful, self-aware, and high-achieving — including professionals, entrepreneurs, and creatives — yet quietly feel exhausted, tense, and disconnected from a steadier sense of self.
             </p>
           </div>
-          <div className="relative aspect-[4/3] rounded-[18px] overflow-hidden border border-line shadow-sm bg-cream group">
+          <Reveal variant="image" className="group relative aspect-[4/3] rounded-[18px] overflow-hidden border border-line shadow-sm bg-cream">
             <Image
               src="/images/who-support.jpg"
-              alt="Reflective adult seated in a warm therapy interior — representing thoughtful adults navigating stress and overthinking"
+              alt="Calm, reflective adult with notebook in a warm therapy interior — representing thoughtful adults navigating stress and overthinking"
               fill
               sizes="(min-width: 1024px) 40vw, 90vw"
-              className="object-cover object-[50%_20%] transition-transform duration-300 ease-out group-hover:scale-[1.02]"
+              className="object-cover object-[50%_25%]"
             />
-          </div>
+          </Reveal>
         </div>
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-6">
-          {groups.map((g) => (
-            <div key={g.title} className="rounded-[18px] bg-cream border border-line p-6 sm:p-7 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md hover:border-sage/30">
-              <div className="h-9 w-9 rounded-full bg-sage-light border border-line flex items-center justify-center">
-                <span className="h-2.5 w-2.5 rounded-full bg-sage-dark" />
+          {groups.map((g, i) => (
+            <Reveal key={g.title} delay={i * 120} className="h-full">
+              <div className="h-full rounded-[18px] bg-cream border border-line p-6 sm:p-7 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md hover:border-sage/30">
+                <div className="h-9 w-9 rounded-full bg-sage-light border border-line flex items-center justify-center">
+                  <span className="h-2.5 w-2.5 rounded-full bg-sage-dark" />
+                </div>
+                <h3 className="mt-4 font-serif-heading text-xl text-ink">{g.title}</h3>
+                <p className="mt-3 text-sm sm:text-[15px] text-ink-soft leading-relaxed">{g.description}</p>
               </div>
-              <h3 className="mt-4 font-serif-heading text-xl text-ink">{g.title}</h3>
-              <p className="mt-3 text-sm sm:text-[15px] text-ink-soft leading-relaxed">{g.description}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </Container>

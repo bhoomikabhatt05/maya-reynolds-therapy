@@ -34,7 +34,7 @@ export default function Navbar() {
               >
                 <Link
                   href={item.href}
-                  className="text-sm font-medium text-ink-soft hover:text-ink transition-colors py-2 flex items-center gap-1"
+                  className="nav-link text-sm font-medium text-ink-soft hover:text-ink transition-colors py-2 flex items-center gap-1"
                 >
                   {item.label}
                   <span className="text-[10px] opacity-60">▼</span>
@@ -60,7 +60,7 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-ink-soft hover:text-ink transition-colors"
+                className="nav-link text-sm font-medium text-ink-soft hover:text-ink transition-colors"
               >
                 {item.label}
               </Link>

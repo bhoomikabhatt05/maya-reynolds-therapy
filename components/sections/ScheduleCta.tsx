@@ -1,12 +1,13 @@
 import Container from "../layout/Container";
 import Button from "../ui/Button";
 import Eyebrow from "../ui/Eyebrow";
+import Reveal from "../ui/Reveal";
 
 export default function ScheduleCta() {
   return (
     <section id="contact" className="py-16 lg:py-24 bg-sand scroll-mt-20">
       <Container className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-        <div>
+        <Reveal>
           <Eyebrow>Sessions in Santa Monica & Across California</Eyebrow>
           <h2 className="font-serif-heading text-3xl sm:text-4xl leading-tight text-ink">
             In-person in Santa Monica or <em className="italic text-sage-dark">secure telehealth</em> across California
@@ -21,9 +22,9 @@ export default function ScheduleCta() {
             <Button href="#contact">Get in Touch</Button>
             <span className="self-center text-xs text-ink-soft">Adults • In-person & telehealth</span>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="rounded-[22px] border border-line bg-cream p-8 sm:p-10 shadow-sm">
+        <Reveal delay={140} className="rounded-[22px] border border-line bg-cream p-8 sm:p-10 shadow-sm">
           <div className="h-1 w-12 rounded-full bg-clay/60 mb-6" />
           <p className="text-[11px] tracking-[0.16em] uppercase text-sage-dark font-semibold">Visit or Connect Virtually</p>
           <p className="mt-3 font-serif-heading text-2xl leading-tight text-ink">
@@ -42,7 +43,7 @@ export default function ScheduleCta() {
             </div>
           </div>
           <p className="mt-6 text-xs text-ink-soft/70">Reach out to discuss next steps and find a time that works.</p>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

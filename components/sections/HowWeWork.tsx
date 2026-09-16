@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Container from "../layout/Container";
 import Eyebrow from "../ui/Eyebrow";
+import Reveal from "../ui/Reveal";
 
 export default function HowWeWork() {
   return (
     <section className="py-16 lg:py-24 bg-sand">
       <Container>
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          <div className="relative w-full aspect-[4/5] rounded-[22px] overflow-hidden border border-line bg-sand shadow-sm">
+          <Reveal variant="image" className="relative w-full aspect-[4/5] rounded-[22px] overflow-hidden border border-line bg-sand shadow-sm">
             <Image
               src="/images/philosophy-support.jpg"
               alt="Calm therapy interior — sage chair by sunlit window with notebook and plant, evoking warmth and grounded safety"
@@ -21,9 +22,9 @@ export default function HowWeWork() {
                 Insight, resilience, and a stronger relationship with yourself — <em className="italic text-sage-dark">not just symptom relief</em>.
               </blockquote>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="order-2">
+          <Reveal className="order-2" delay={120}>
             <Eyebrow>Therapy Philosophy</Eyebrow>
             <h2 className="font-serif-heading text-3xl sm:text-4xl leading-tight text-ink">
               Practical tools, depth-oriented work, and respect for your pace.
@@ -42,7 +43,7 @@ export default function HowWeWork() {
                 For adults located in California, therapy is available in-person in Santa Monica and via secure telehealth.
               </p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>
