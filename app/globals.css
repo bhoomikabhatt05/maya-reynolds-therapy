@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  /* Final premium private practice palette — per assignment */
+  --color-cream: #FAF8F3; /* Ivory 70% */
+  --color-sand: #EDE5D8; /* Oat Beige */
+  --color-sand-soft: #E4DBCD; /* Soft Sand */
+  --color-sage: #87988A; /* Muted Sage 20% */
+  --color-sage-dark: #4C5F52; /* Deep Sage */
+  --color-sage-light: #E7ECE7; /* Light Sage */
+  --color-clay: #B9856D; /* Soft Clay 5-10% accent */
+  --color-clay-light: #EFE0D7; /* Clay Light */
+  --color-line: #DDD4C7; /* Border */
+  --color-ink: #302923; /* Dark Brown / Primary text */
+  --color-ink-soft: #6D665F; /* Secondary text */
+  --color-brown: #493B32; /* Walnut Brown */
+
+  /* Legacy aliases for existing components */
+  --color-teal: var(--color-sage);
+  --color-teal-dark: var(--color-sage-dark);
+  --color-teal-light: var(--color-sage-light);
+}
+
+@theme inline {
+  --color-cream: var(--color-cream);
+  --color-sand: var(--color-sand);
+  --color-sand-soft: var(--color-sand-soft);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-sage: var(--color-sage);
+  --color-sage-dark: var(--color-sage-dark);
+  --color-sage-light: var(--color-sage-light);
+  --color-clay: var(--color-clay);
+  --color-clay-light: var(--color-clay-light);
+  --color-line: var(--color-line);
+  --color-brown: var(--color-brown);
+  --color-teal: var(--color-sage);
+  --color-teal-dark: var(--color-sage-dark);
+  --color-teal-light: var(--color-sage-light);
+
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", Times, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+.font-serif-heading {
+  font-family: var(--font-serif);
+  letter-spacing: -0.02em;
+}
